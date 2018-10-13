@@ -149,8 +149,8 @@
 #define CATCH_STATIC_REQUIRE( ... )       static_assert(   __VA_ARGS__ ,      #__VA_ARGS__ );     CATCH_SUCCEED( #__VA_ARGS__ )
 #define CATCH_STATIC_REQUIRE_FALSE( ... ) static_assert( !(__VA_ARGS__), "!(" #__VA_ARGS__ ")" ); CATCH_SUCCEED( #__VA_ARGS__ )
 #else
-#define CATCH_STATIC_REQUIRE( ... )       CATCH_REQUIRE( #expr )
-#define CATCH_STATIC_REQUIRE_FALSE( ... ) CATCH_REQUIRE_FALSE( #expr )
+#define CATCH_STATIC_REQUIRE( ... )       CATCH_REQUIRE( __VA_ARGS__ )
+#define CATCH_STATIC_REQUIRE_FALSE( ... ) CATCH_REQUIRE_FALSE( __VA_ARGS__ )
 #endif
 
 
@@ -302,8 +302,8 @@ using Catch::Detail::Approx;
 #define CATCH_THEN( desc )
 #define CATCH_AND_THEN( desc )
 
-#define CATCH_STATIC_REQUIRE( expr )       (void)(0)
-#define CATCH_STATIC_REQUIRE_FALSE( expr ) (void)(0)
+#define CATCH_STATIC_REQUIRE( ... )       (void)(0)
+#define CATCH_STATIC_REQUIRE_FALSE( ... ) (void)(0)
 
 // If CATCH_CONFIG_PREFIX_ALL is not defined then the CATCH_ prefix is not required
 #else
@@ -356,8 +356,8 @@ using Catch::Detail::Approx;
 #define ANON_TEST_CASE() INTERNAL_CATCH_TESTCASE_NO_REGISTRATION(INTERNAL_CATCH_UNIQUE_NAME( ____C_A_T_C_H____T_E_S_T____ ))
 
 
-#define STATIC_REQUIRE( expr )       (void)(0)
-#define STATIC_REQUIRE_FALSE( expr ) (void)(0)
+#define STATIC_REQUIRE( ... )       (void)(0)
+#define STATIC_REQUIRE_FALSE( ... ) (void)(0)
 
 #endif
 
